@@ -425,5 +425,31 @@ func contemSubstring(s, substr string) bool {
 	return strings.Contains(s, substr)
 }
 
-17.
+17.Solicite ao usuário uma string e imprima somente as suas letras únicas (que aparecem apenas uma vez).
+
+package main
+import "fmt"
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	letrasUnicas := obterLetrasUnicas(inputString)
+	fmt.Println("Letras únicas na string:", letrasUnicas)
+}
+func obterLetrasUnicas(s string) string {
+	ocorrencias := make(map[rune]int)
+	for _, char := range s {
+		ocorrencias[char]++
+	}
+	var letrasUnicas string
+	for _, char := range s {
+		if ocorrencias[char] == 1 {
+			letrasUnicas += string(char)
+		}
+	}
+	return letrasUnicas
+}
+
+18.
+
 
