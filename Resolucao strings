@@ -14,4 +14,18 @@ func converter(s string) string {
 	return resultado
 }
 
-2.
+2.Escreva um programa que receba uma string e remova todos os espaços em branco. Informe ao usuário o resultado.
+
+package main
+import "fmt"
+func removerEspacos(s string) string {
+	var resultado string
+	for _, char := range s {
+		if char != ' ' {
+			resultado += string(char)
+		}
+	}
+	return resultado
+}
+
+3.
