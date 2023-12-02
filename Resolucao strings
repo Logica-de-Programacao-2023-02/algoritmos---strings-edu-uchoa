@@ -79,4 +79,46 @@ func saoIguais(str1, str2 string) bool {
 	return str1 == str2
 }
 
-5.
+5.Escreva um programa que receba uma string e verifique se ela é um número válido em ponto flutuante. Informe ao usuário se é ou não.
+
+package main
+import (
+	"fmt"
+	"strings"
+)
+func main() {
+	fmt.Print("Digite um número em ponto flutuante: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	if ehNumeroFlutuante(inputString) {
+		fmt.Println("É um número em ponto flutuante válido.")
+	} else {
+		fmt.Println("Não é um número em ponto flutuante válido.")
+	}
+}
+func ehNumeroFlutuante(s string) bool {
+	if s == "" {
+		return false
+	}
+	if strings.Count(s, ".") > 1 {
+		return false
+	}
+	if s[0] == '-' || s[0] == '+' {
+		s = s[1:]
+	}
+	temDigito := false
+	for _, char := range s {
+		if char == '.' {
+			if temDigito {
+				return false
+			}
+		} else if char < '0' || char > '9' {
+			return false
+		} else {
+			temDigito = true
+		}
+	}
+	return temDigito
+}
+
+6.
