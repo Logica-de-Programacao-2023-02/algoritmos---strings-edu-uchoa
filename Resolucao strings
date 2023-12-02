@@ -256,4 +256,30 @@ func ordenarString(s string) string {
 	return string(runes)
 }
 
-11.
+11.Escreva um programa que receba uma string e remova todas as vogais. Informe ao usuário o resultado.
+
+package main
+import (
+	"fmt"
+	"strings"
+)
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	resultado := removerVogais(inputString)
+	fmt.Println("Resultado:", resultado)
+}
+func removerVogais(s string) string {
+	vogais := "aeiouAEIOU"
+	var resultado strings.Builder
+	for _, char := range s {
+		if !strings.ContainsRune(vogais, char) {
+			resultado.WriteRune(char)
+		}
+	}
+	return resultado.String()
+}
+
+12.
+
