@@ -450,6 +450,31 @@ func obterLetrasUnicas(s string) string {
 	return letrasUnicas
 }
 
-18.
+18.Solicite ao usuário uma string e informe se ela contém somente números (0 a 9).
 
+package main
+import (
+	"fmt"
+	"unicode"
+)
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	if contemApenasNumeros(inputString) {
+		fmt.Println("A string contém apenas números.")
+	} else {
+		fmt.Println("A string não contém apenas números.")
+	}
+}
+func contemApenasNumeros(s string) bool {
+	for _, char := range s {
+		if !unicode.IsDigit(char) {
+			return false
+		}
+	}
+	return true
+}
+
+19.
 
