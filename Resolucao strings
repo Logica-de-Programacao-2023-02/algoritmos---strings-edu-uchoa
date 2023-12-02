@@ -194,4 +194,33 @@ func inverterString(s string) string {
 	return string(runes)
 }
 
-9.
+9.Solicite ao usuário uma string e substitua todas as ocorrências de uma letra por outra informada pelo usuário.
+
+package main
+import "fmt"
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	fmt.Print("Digite a letra a ser substituída: ")
+	var letraAlvo string
+	fmt.Scanln(&letraAlvo)
+	fmt.Print("Digite a letra de substituição: ")
+	var letraSubstituta string
+	fmt.Scanln(&letraSubstituta)
+	resultado := substituirLetra(inputString, letraAlvo, letraSubstituta)
+	fmt.Println("Resultado:", resultado)
+}
+func substituirLetra(s, letraAlvo, letraSubstituta string) string {
+	alvoRune := []rune(letraAlvo)[0]
+	substitutaRune := []rune(letraSubstituta)[0]
+	runes := []rune(s)
+	for i, char := range runes {
+		if char == alvoRune {
+			runes[i] = substitutaRune
+		}
+	}
+	return string(runes)
+}
+
+10.
