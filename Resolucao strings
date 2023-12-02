@@ -495,5 +495,47 @@ func inverterString(s string) string {
 	return string(runes)
 }
 
-20.
+20.Solicite ao usuário uma string e informe se ela é está em camelCase e quantas palavras possuí.
+CamelCase é quando a primeira letra de cada palavra é maiúscula, e as demais são minúsculas. Exemplo: "estaStringEstaEmCamelCase".
+
+package main
+import (
+	"fmt"
+	"unicode"
+)
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	if estaEmCamelCase(inputString) {
+		numPalavras := contarPalavrasCamelCase(inputString)
+		fmt.Printf("A string está em camelCase e possui %d palavras.\n", numPalavras)
+	} else {
+		fmt.Println("A string não está em camelCase.")
+	}
+}
+func estaEmCamelCase(s string) bool {
+	if s == "" {
+		return false
+	}
+	if !unicode.IsUpper(rune(s[0])) {
+		return false
+	}
+	for _, char := range s[1:] {
+		if !unicode.IsLower(char) {
+			return false
+		}
+	}
+	return true
+}
+func contarPalavrasCamelCase(s string) int {
+	numPalavras := 1
+	for _, char := range s {
+		if unicode.IsUpper(char) {
+			numPalavras++
+		}
+	}
+	return numPalavras
+}
+
 
