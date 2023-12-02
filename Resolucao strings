@@ -149,5 +149,30 @@ func contarPalavras(s string) int {
 	return numPalavras
 }
 
-7.
+7.Solicite ao usuário uma string e informe se ela contém pelo menos um número.
 
+package main
+import (
+	"fmt"
+	"unicode"
+)
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	if contemNumero(inputString) {
+		fmt.Println("A string contém pelo menos um número.")
+	} else {
+		fmt.Println("A string não contém números.")
+	}
+}
+func contemNumero(s string) bool {
+	for _, char := range s {
+		if unicode.IsDigit(char) {
+			return true
+		}
+	}
+	return false
+}
+
+8.
