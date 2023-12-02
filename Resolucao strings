@@ -476,5 +476,24 @@ func contemApenasNumeros(s string) bool {
 	return true
 }
 
-19.
+19.Solicite ao usuário uma string e imprima a mesma string invertida.
+
+package main
+import "fmt"
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	stringInvertida := inverterString(inputString)
+	fmt.Println("String invertida:", stringInvertida)
+}
+func inverterString(s string) string {
+	runes := []rune(s)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	return string(runes)
+}
+
+20.
 
