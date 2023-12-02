@@ -223,4 +223,37 @@ func substituirLetra(s, letraAlvo, letraSubstituta string) string {
 	return string(runes)
 }
 
-10.
+10.Escreva um programa que receba duas strings e verifique se elas são anagramas. Informe ao usuário se são ou não.
+
+package main
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
+func main() {
+	fmt.Print("Digite a primeira string: ")
+	var str1 string
+	fmt.Scanln(&str1)
+	fmt.Print("Digite a segunda string: ")
+	var str2 string
+	fmt.Scanln(&str2)
+	if saoAnagramas(str1, str2) {
+		fmt.Println("As strings são anagramas.")
+	} else {
+		fmt.Println("As strings não são anagramas.")
+	}
+}
+func saoAnagramas(str1, str2 string) bool {
+	return ordenarString(prepararString(str1)) == ordenarString(prepararString(str2))
+}
+func prepararString(s string) string {
+	return strings.ReplaceAll(strings.ToLower(s), " ", "")
+}
+func ordenarString(s string) string {
+	runes := []rune(s)
+	sort.Sort(sortRunes(runes))
+	return string(runes)
+}
+
+11.
