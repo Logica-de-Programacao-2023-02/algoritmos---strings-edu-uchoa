@@ -310,5 +310,42 @@ func inverterString(s string) string {
 	return string(runes)
 }
 
-13.
+13.Solicite ao usuário uma string e informe se ela é uma sequência numérica crescente (exemplo: "123" ou "4567").
+
+package main
+import (
+	"fmt"
+	"strconv"
+)
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	if ehSequenciaCrescente(inputString) {
+		fmt.Println("É uma sequência numérica crescente.")
+	} else {
+		fmt.Println("Não é uma sequência numérica crescente.")
+	}
+}
+func ehSequenciaCrescente(s string) bool {
+	runes := []rune(s)
+	if len(runes) == 0 {
+		return false
+	}
+	var valorAnterior int
+	for i, char := range runes {
+		valor, err := strconv.Atoi(string(char))
+		if err != nil {
+			return false
+		}
+		if i > 0 && valor != valorAnterior+1 {
+			return false
+		}
+		valorAnterior = valor
+	}
+	return true
+}
+
+14.
+
 
