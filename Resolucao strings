@@ -346,6 +346,34 @@ func ehSequenciaCrescente(s string) bool {
 	return true
 }
 
-14.
+14.Solicite ao usuário uma string e informe se ela é uma sequência numérica decrescente (exemplo: "987" ou "54321").
+
+package main
+import (
+	"fmt"
+	"strconv"
+)
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	if ehSequenciaDecrescente(inputString) {
+		fmt.Println("É uma sequência numérica decrescente.")
+	} else {
+		fmt.Println("Não é uma sequência numérica decrescente.")
+	}
+}
+func ehSequenciaDecrescente(s string) bool {
+	for i := 1; i < len(s); i++ {
+		valorAnterior, _ := strconv.Atoi(string(s[i-1]))
+		valorAtual, _ := strconv.Atoi(string(s[i]))
+		if valorAtual != valorAnterior-1 {
+			return false
+		}
+	}
+	return true
+}
+
+15.
 
 
