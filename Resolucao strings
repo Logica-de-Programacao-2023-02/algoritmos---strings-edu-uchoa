@@ -281,5 +281,34 @@ func removerVogais(s string) string {
 	return resultado.String()
 }
 
-12.
+12.Escreva um programa que receba uma string e verifique se ela é um palíndromo. Informe ao usuário se é ou não.
+
+package main
+import (
+	"fmt"
+	"strings"
+)
+func main() {
+	fmt.Print("Digite uma string: ")
+	var inputString string
+	fmt.Scanln(&inputString)
+	if ehPalindromo(inputString) {
+		fmt.Println("É um palíndromo.")
+	} else {
+		fmt.Println("Não é um palíndromo.")
+	}
+}
+func ehPalindromo(s string) bool {
+	s = strings.ToLower(strings.ReplaceAll(s, " ", ""))
+	return s == inverterString(s)
+}
+func inverterString(s string) string {
+	runes := []rune(s)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	return string(runes)
+}
+
+13.
 
